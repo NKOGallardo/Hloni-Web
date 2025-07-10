@@ -1,0 +1,423 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Love the snytax 🤣 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  color: gray;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-radius: 20px;
+
+  .nav-logo {
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+
+  .nav-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    transition: max-height 0.4s, opacity 0.4s;
+    li {
+      a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 8px 14px;
+        border-radius: 8px;
+        transition: background 0.3s, color 0.3s;
+        &:hover {
+          background: #f3e6f9;
+          color: #a23ecf;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    .nav-toggle {
+      display: block;
+    }
+    .nav-links {
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      gap: 10px;
+      padding: 10px 20px;
+      display: none;
+      &.active {
+        display: flex;
+      }
+    }
+  }
+}
+
+body.dark {
+  background: #181818;
+  color: #f0f0f0;
+}
+
+body.dark .navbar {
+  background: #232323;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+body.dark .navbar .nav-logo {
+  color: #fff;
+}
+
+body.dark .navbar .nav-links {
+  background: #232323;
+}
+
+body.dark .navbar .nav-links li a {
+  color: #f0f0f0;
+}
+
+body.dark .navbar .nav-links li a:hover {
+  background: #2d2d2d;
+  color: #ffb3ff;
+}
+
+body.dark .nav-toggle {
+  color: #fff;
+}
+
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hero {
+  background: linear-gradient(to right, #f99fc9, #f5b9e2);
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero .btn {
+  display: inline-block;
+  margin-top: 15px;
+  background: #fff;
+  color: #f23e8a;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.hero .btn:hover {
+  background: #f8f8f8;
+}
+
+.highlight {
+  color: #fff700;
+}
+
+.about {
+  padding: 40px 20px;
+  background: #f9f9f9;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.feed {
+  padding: 40px 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  padding: 10px;
+}
+
+.grid img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.highlights {
+  padding: 40px 20px;
+  background: #ffe3f0;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.card {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-content {
+  animation: fadeSlideUp 1s ease forwards;
+}
+
+.card:hover, .grid img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.contact {
+  padding: 40px 20px;
+  background: #f0f0f0;
+  text-align: center;
+}
+
+.contact .btn {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+#typing-text {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #fff;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #fff; }
+}
+
+
+.contact .btn {
+  display: inline-block;
+  margin-top: 15px;
+  background: #f23e8a;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.contact .btn:hover {
+  background: #e12270;
+}
+
+button {
+  background: #f23e8a;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e12270;
+}
+
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark .hero {
+  background: linear-gradient(to right, #333, #222);
+  color: #fff;
+}
+
+body.dark .about,
+body.dark .highlights,
+body.dark .feed,
+body.dark .contact {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark .card {
+  background-color: #2a2a2a;
+}
+
+body.dark .contact .btn,
+body.dark .hero .btn {
+  background: #ff77c2;
+  color: #000;
+}
+
+body.dark footer {
+  background: #000;
+  color: #aaa;
+}
+
+body.dark #typing-text {
+  border-right: 3px solid #fff;
+}
+
+/* Toggle Button Styling */
+.toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.toggle-btn:hover {
+  transform: scale(1.2);
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .profile-pic {
+    width: 120px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 80%;
+    text-align: center;
+  }
+
+  form {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  #typing-text {
+    font-size: 1rem;
+  }
+
+  .contact .btn {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+
+  .hero-content {
+    padding: 0 10px;
+  }
+}
