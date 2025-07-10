@@ -36,9 +36,10 @@ body {
   }
 
   .nav-toggle {
+
     display: none;
     font-size: 2rem;
-    background: none;
+    background: gray;
     border: none;
     cursor: pointer;
   }
@@ -401,6 +402,7 @@ body.dark #typing-text {
   form {
     width: 90%;
   }
+
 }
 
 @media (max-width: 480px) {
